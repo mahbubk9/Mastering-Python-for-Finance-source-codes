@@ -84,20 +84,7 @@ class ForexSystem(oandapy.Streamer):
         ATR = pd.Series(TR_s.rolling(window=4,min_periods=4,center=False).mean(), name = 'ATR_' + str(4))  
         self.resampled_prices = self.resampled_prices.join(ATR)  
         return self.resampled_prices
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     def tick_event(self, time, symbol, bid, ask):
         midprice = (ask+bid)/2.
@@ -107,24 +94,7 @@ class ForexSystem(oandapy.Streamer):
         n=list(range(0,len(self.resampled_prices.index)))
         self.resampled_prices.index=n
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
+    
 
         if self.ticks>8:
             
