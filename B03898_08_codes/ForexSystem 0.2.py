@@ -76,7 +76,7 @@ class ForexSystem(oandapy.Streamer):
     def ATR(self,data):  
         i = 0 
         TR_l = [0]  
-        while i < len(self.resampled_prices.index)-1:  
+        while i < len(self.resampled_prices.index):  
             TR = max(self.resampled_prices.get_value(i + 1, 'high'), self.resampled_prices.get_value(i, 'close')) - min(self.resampled_prices.get_value(i + 1, 'low'), self.resampled_prices.get_value(i, 'close'))  
             TR_l.append(TR)  
             i = i + 1  
